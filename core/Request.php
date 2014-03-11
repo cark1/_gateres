@@ -59,13 +59,18 @@ class Request{
 		
 		}
 		
-		//languages
-		$this->languages = explode(',',$this->headers['Accept-Language']);
 		
-		foreach($this->languages as $key => $value){
+		//languages
+		if(isset($this->headers['Accept-Language'])){
 			
-			$this->languages[$key] = preg_replace('/;.*/', '', $value);
+			$this->languages = explode(',',$this->headers['Accept-Language']);
+		
+			foreach($this->languages as $key => $value){
 			
+				$this->languages[$key] = preg_replace('/;.*/', '', $value);
+			
+			}
+		
 		}
 	
 	}//__construct

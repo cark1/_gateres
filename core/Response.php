@@ -89,9 +89,14 @@ class Response{
 	}//addErrorToBody
 	
 	
-	public function send(){
+	public function send($_exit = true){
 
 		echo json_encode($this->body);
+		$this->body = null;
+		
+		if($_exit){
+			exit(0);
+		}
 		
 	}//send
 	

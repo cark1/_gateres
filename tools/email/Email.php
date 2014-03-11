@@ -29,38 +29,24 @@ class Email{
 	
 	function addFromHeader($_from){
 		
-		if(strlen($this->headers) > 0) $this->headers.='\r\n';
-		
-		$this->headers.='From: '.$_from;
-		
-		$this->headers = 'From: webmaster@example.com' . "\r\n" .
-		    'Reply-To: webmaster@example.com' . "\r\n" .
-		    'X-Mailer: PHP/' . phpversion();
+		$this->headers.="From: ".$_from."\r\n";
 		
 	}//addFromHeader
 	
 	
 	function addReplyToHeader($_replayTo){
 		
-		if(strlen($this->headers) > 0) $this->headers.='\r\n';
-		
-		$this->headers.='Reply-To: '.$_replayTo;
-		
-		$this->headers = 'From: webmaster@example.com' . "\r\n" .
-		    'Reply-To: webmaster@example.com' . "\r\n" .
-		    'X-Mailer: PHP/' . phpversion();
+		$this->headers.="Reply-To: ".$_replayTo."\r\n";
 		
 	}//addReplyToHeader
 	
 	
 	function addXMailerHeader($_xMailer = null){
 		
-		if(strlen($this->headers) > 0) $this->headers.='\r\n';
-		
-		$xMailer = 'PHP/' . phpversion();
+		$xMailer = "PHP/" . phpversion();
 		if($_xMailer != null) $xMailer = $_xMailer;
 		
-		$this->headers.='X-Mailer: '.$xMailer;
+		$this->headers.="X-Mailer: ".$xMailer;
 		
 	}//addXMailerHeader
 	

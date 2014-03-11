@@ -33,7 +33,7 @@ class Model{
 	
 	function create(){		
 		
-		$properties = getDefaultProperties();
+		$properties = $this->getDefaultProperties();
 		
 		$keys = array_keys($properties);
 		
@@ -64,7 +64,7 @@ class Model{
 	
 	function read(){
 		
-		$properties = getDefaultProperties();
+		$properties = $this->getDefaultProperties();
 		
 		$keys = array_keys($properties);
 		
