@@ -37,10 +37,10 @@ class Model{
 		
 		$keys = array_keys($properties);
 		
-		$columns = implode(',',$keys);
+		$columns = implode('`,`',$keys);
 		$values = implode(',:',$keys);
 		
-		$query = "INSERT INTO ".$this->tableName." (".$columns.") VALUES (:".$values.")";
+		$query = "INSERT INTO ".$this->tableName." (`".$columns."`) VALUES (:".$values.")";
 		
 		$this->db->setQuery($query);
 		
@@ -68,9 +68,9 @@ class Model{
 		
 		$keys = array_keys($properties);
 		
-		$columns = implode(',',$keys);
+		$columns = implode('`,`',$keys);
 		
-		$query = "SELECT ".$columns." FROM ".$this->tableName." WHERE id = :id";
+		$query = "SELECT `".$columns."` FROM ".$this->tableName." WHERE `id` = :id";
 		
 		$this->db->setQuery($query);
 		$this->db->bindParam(':id',$this->id);
@@ -102,11 +102,11 @@ class Model{
 			
 			if(strlen($columnValueString) != 0) $columnValueString.=',';
 			
-			$columnValueString.=$column.'=:'.$column;
+			$columnValueString.="`".$column."`".'=:'.$column;
 			
 		}
 		
-		$query = "UPDATE ".$this->tableName." SET ".$columnValueString." WHERE id = :id";
+		$query = "UPDATE ".$this->tableName." SET ".$columnValueString." WHERE `id` = :id";
 		
 		$this->db->setQuery($query);
 		
@@ -132,7 +132,7 @@ class Model{
 	
 	function delete(){
 		
-		$query = "DELETE FROM ".$this->tableName." WHERE id = :id";
+		$query = "DELETE FROM ".$this->tableName." WHERE `id` = :id";
 		
 		$this->db->setQuery($query);
 		$this->db->bindParam(':id',$this->id);
