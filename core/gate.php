@@ -4,6 +4,9 @@ use gateres\core\Request;
 use gateres\core\Response;
 use gateres\core\Router;
 
+if(isset($GLOBALS['TIMEZONE'])){
+	date_default_timezone_set($GLOBALS['TIMEZONE']);
+}
 
 if($GLOBALS['SHOW_ERRORS'] == true){
 	error_reporting(E_ALL);
